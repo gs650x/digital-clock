@@ -1,0 +1,60 @@
+<template>
+    <template if:true={adjustDigit}>
+        <!-- Top most line -->
+        <div style={adjustDigit.topHorizontal} class="horizontal-line">
+
+        </div>
+
+        <!-- lightning layout starts from here -->
+        <lightning-layout>
+            <lightning-layout-item size="10">
+                <!-- Top left vertical line -->
+                <div style={adjustDigit.topLeftVertical} class="vertical-line">
+
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="2">
+
+                <!-- Top right vertical line -->
+                <div style={adjustDigit.topRightVertical} class="vertical-line ">
+
+                </div>
+            </lightning-layout-item>
+
+        </lightning-layout>
+        <!-- lightning layout ends here -->
+
+        <!-- certer horizontal line -->
+        <div style={adjustDigit.centerHorizontal} class="horizontal-line">
+
+        </div>
+
+        <!-- lightning layout starts from here  -->
+        <lightning-layout>
+            <lightning-layout-item size="10">
+
+                <!-- bottom left vertical line -->
+                <div style={adjustDigit.bottomLeftVertical} class="vertical-line ">
+
+                </div>
+
+            </lightning-layout-item>
+            <lightning-layout-item size="2">
+
+                <!-- Bottom right vertical line -->
+                <div style={adjustDigit.bottomRightVertical} class="vertical-line ">
+
+                </div>
+            </lightning-layout-item>
+
+        </lightning-layout>
+
+        <!-- lightning layout ends from here  -->
+
+        <!-- Bottom horizontal line -->
+        <div style={adjustDigit.bottomHorizontal} class="horizontal-line">
+
+        </div>
+        
+    </template>
+</template>

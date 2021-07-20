@@ -1,0 +1,28 @@
+<template>
+    <div if:true={hasClockPermissions} class="page-size">
+        <div class="slds-is-relative">
+            <template if:true={showSpinner}>
+                <lightning-spinner alternative-text="Loading" variant="brand">
+
+                </lightning-spinner>
+            </template>
+            <template if:true={showClocks}>
+                <template for:each={clocksDataArray} for:item="clock">
+                    <c-digital-clock key={clock.Id} time-zone-options={timeZoneOptions} clock-data={clock}
+                        onaddclock={handleAddClock} onremoveclock={handleRemoveClock} onupdateclock={handleUpdateClock}>
+                    </c-digital-clock>
+                </template>
+            </template>
+        </div>
+    </div>
+
+    <div if:false={hasClockPermissions}>
+        <lightning-card>
+            <div class="slds-align_absolute-center">
+                <b
+                    title="Kindly navigate to the permission set option from the quick find search bar, search for 'ClockPermission', click on manage assignment and select the user who needs clock permission.">
+                    Please assign clock permission to the currently logged in user.</b>
+            </div>
+        </lightning-card>
+    </div>
+</template>

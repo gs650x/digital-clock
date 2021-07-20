@@ -1,0 +1,30 @@
+.clock-font {
+    font-variant-numeric: slashed-zero;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.container {
+    border-radius: 25px;
+    border: 2px solid black;
+    background-color: black;
+    padding: 20px;
+    width: 210px;
+    height: 120px;
+}
+
+.vertical-line {
+    border-radius: 25px;
+    background: #2181ad;
+    width: 3px;
+    height: 12px;
+}
+
+.horizontal-line {
+    border-radius: 25px;
+    background: #2181ad;
+    width: 20px;
+    height: 3px;
+    margin-bottom: 1px;
+    margin-top: 1px;
+}

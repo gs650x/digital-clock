@@ -1,0 +1,86 @@
+<template>
+    <div class="slds-is-relative">
+        <template if:true={showSpinner}>
+            <lightning-spinner alternative-text="Loading" variant="brand">
+
+            </lightning-spinner>
+        </template>
+        <lightning-card>
+            <template if:false={showClockProperties}>
+                <b if:true={adjustClock} slot="title">{adjustClock.Time_Zone_Label__c}</b>
+                <lightning-button-icon icon-name="utility:add" variant="bare" slot="actions" size="large"
+                    onclick={handleAddClock}>
+                </lightning-button-icon>
+                <lightning-button-icon icon-name="utility:clear" variant="bare" slot="actions" size="large"
+                    class="slds-p-horizontal_small" onclick={handleRemoveClock}>
+                </lightning-button-icon>
+                <lightning-button-icon icon-name="utility:settings" variant="bare" size="large" slot="actions"
+                    onclick={handleClockProperties}>
+                </lightning-button-icon>
+                <div class="slds-align_absolute-center">
+                    <div class="container">
+
+                        <div class="slds-grid">
+                            <div>
+                                <c-digit adjust-digit={adjustFirstDigit}></c-digit>
+                            </div>
+                            <div class="slds-p-horizontal_small">
+                                <c-digit adjust-digit={adjustSecondDigit}></c-digit>
+                            </div>
+                            <div>
+                                <div class="dot" style={dotStyle}>
+
+                                </div>
+
+                                <div class="dot" style={dotStyle}>
+
+                                </div>
+                            </div>
+                            <div>
+                                <c-digit adjust-digit={adjustThirdDigit}></c-digit>
+                            </div>
+                            <div class="slds-p-horizontal_small">
+                                <c-digit adjust-digit={adjustFourthDigit}></c-digit>
+                            </div>
+
+                            <div if:false={show24HourClock} class="date amPm">
+                                {amPm}
+                            </div>
+                        </div>
+                        <div class="slds-align_absolute-center slds-p-top_xx-small date">
+                            {dateToday}
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <template if:true={showClockProperties}>
+
+
+                <lightning-combobox label="Please select a time zone" class="slds-m-around_small"
+                    options={timeZoneOptions} value={adjustClock.Time_Zone__c} onchange={handleTimezoneChange}>
+                </lightning-combobox>
+                <div class="slds-align_absolute-center">
+                    <lightning-input label="Show 24 hour clock" type="checkbox" class="slds-m-vertical_small"
+                        onclick={handle24HourClock} checked={adjustClock.show_24_Hour_Clock__c}>
+                    </lightning-input>
+                </div>
+
+
+
+                <lightning-layout horizontal-align="center">
+                    <lightning-layout-item>
+                        <lightning-button label="Cancel" variant="brand-outline" class="slds-p-right_small"
+                            onclick={handleCancelClockProperties}>
+
+                        </lightning-button>
+                        <lightning-button label="Save" variant="brand" onclick={handleSaveClockProperties}>
+                        </lightning-button>
+                    </lightning-layout-item>
+                </lightning-layout>
+
+            </template>
+
+
+        </lightning-card>
+    </div>
+</template>
